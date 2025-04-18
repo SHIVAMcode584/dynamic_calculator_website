@@ -1,0 +1,396 @@
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+.parent-without-overflow{
+    padding-top: 80px; /* Adjust based on your navbar height */
+}
+
+.navbar{
+   width: 100%;
+   border-bottom : 2px solid #fff;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   box-shadow: 0 2px 5px rgba(0,0,0,.1);
+   position:fixed;
+   top:0;
+   left:0;
+   z-index: 10000;
+
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+
+
+
+}
+.navbar.scrolled {
+    background-color: #41729F; /* Blue */
+    transition: background-color 0.3s ease;
+    border:none;
+    box-shadow: 0 2px 5px rgba(0,0,0,.1);
+    ;
+}
+.logo img{
+    transform: rotate(-10deg);
+}
+.logo span{
+    font-size: 30px;
+    font-family: "Ubuntu";
+    margin-bottom: 10px;
+    color:#274472;
+    font-weight: bold;
+}
+.input-lang{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:20px
+}
+
+.search-bar {
+    display: inline-flex;
+    transition: all .4s ease-in-out;
+    border-radius:9px ;
+}
+
+
+.search-bar input{
+    width: 100%;
+    font-size: 22px;
+    padding:.6rem;
+    border : 1px solid #41729F;
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;
+}
+.search-bar i{
+    border: 1px solid #41729F;
+    align-items: center;
+    /* justify-self: center; */
+    display: flex;
+    padding:.5rem;
+    font-size: 22px;
+    
+    border-top-right-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
+.search-bar input:focus{
+    border-color:#5885AF;
+    outline: none;
+    box-shadow: none;
+}
+.search-bar:hover{
+    box-shadow: 0 0 10px #41729F;
+}
+.lang{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lang img{
+    width:40px;
+    height: 40px;
+}
+.lang select{
+    font-size: 22px;
+}
+
+.content-section{
+    background-color: #145DA0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top:1.5rem
+}
+.box-of-heading-content{
+    background-color: #B1D4E0;
+    text-align: center;
+    width:60%;
+    padding : 0.1rem
+}
+.box-of-heading-content p{
+    font-family: 'Ubuntu';
+    font-size: 21px;
+}
+
+/* .content-section */
+
+.primary-main-content-section{
+    display: flex;
+    justify-content: space-around;
+    margin-top:5%
+}
+
+.primary-content{
+    align-items: center;
+    text-align: center;
+}
+.primary-content p{
+    font-size: 22px;
+    font-family: 'ubuntu';
+    text-decoration: underline #B1D4E0;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+.primary-content p:hover{
+    text-decoration: underline 2px #145DA0;
+}
+
+.secondary-main-content-section{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  column-gap: 10px;
+  row-gap: 10px;
+}
+.secondary-content{
+    display: flex;
+    gap:5px;
+    background-color: #145DA0;
+    color:#fff;
+    padding-left:10px;
+    padding-top:10px
+}
+.secondary-content p{
+    font-size: 20px;
+    font-family: 'ubuntu';
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+/* Tertiary-content-seciont */
+.tertiary-main-content-section{
+text-align: center;
+margin-top:4%;
+border-top:1px solid black
+}
+.tertiary-main-content-section h2{
+    font-size: 29px;
+    font-weight: bold;
+    font-family: "Arial";
+}
+.txt-heading{
+    font-size: 20px;
+    font-family: "ubuntu";
+    background-color: #F1F3F4;
+    margin:0 30%;
+    border-radius: 10px;
+    font-weight: 600;
+    padding:.4rem 0;
+}
+.tertiary-content-section{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top:3%
+}
+.tertiary-content{
+    display: flex;
+    flex-direction: column;
+    border: 10px solid #15567D;
+    width:25%;
+    height:170px;
+    overflow-y: scroll;
+}
+
+.img-txt{
+    display: flex;
+
+}
+.tertiary-content-text-content{
+    font-size: 17px;
+    font-weight: 800;
+}
+.btn-div button{
+    width:90%;
+    border:none;
+    padding : .5rem .5rem;
+    font-size: 20px;
+    background-color: #15567D;
+    color:#fff
+}
+
+.last-content-section{
+    border-top:10px solid green;
+    border-bottom: 10px solid green;
+    height:300px;
+    margin-top:2%;
+    text-align: center;
+    background-color: #77CE23;
+    display: flex;
+    align-items: center;
+}
+.last-content-child{
+    border : 2px solid red;
+    height:90%;
+    width:60%;
+    margin:auto;
+    background-color: #4A8611;
+}
+.last-content-child .logo-heading-section{
+    display: flex;
+    margin-top:10px;
+    margin-left: 20px;
+    gap:10px
+}
+.last-content-child .logo-heading-section span{
+    color:#fff;
+    font-size: 22px;
+    font-weight: 900;
+    margin-top:10px;
+}
+
+.logo-coffee{
+    background-color: #fff;
+    border-radius: 50%;
+   
+}
+
+footer{
+    border-top:2px solid black;
+    margin-top:3%;
+    background-color: #B1D4E0;
+    text-align: center;
+}
+
+footer p{
+    font-size: 22px;
+    font-family: 'ubuntu';
+}
+.contact-box-parent{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.contact-box-footer{
+    display: flex;
+    width:30%;
+    margin:auto;
+    border : 1px solid #274472;
+    justify-content: space-between;
+    padding:.3rem .3rem;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+li{
+    font-size: 19px;
+}
+
+
+
+/* gImproved styling*/
+
+:root {
+    --primary-blue: #145DA0;
+    --secondary-blue: #41729F;
+    --light-blue: #B1D4E0;
+    --dark-blue: #274472;
+    --white: #fff;
+    --light-gray: #F1F3F4;
+    --green: #77CE23;
+    --dark-green: #4A8611;
+    --tertiary-blue: #15567D;
+}
+  
+  .navbar {
+    /* background-color: var(--primary-blue); */
+    border-bottom: 2px solid var(--white);
+    border-bottom:2px solid var(--white)
+  }
+  .logo span{
+      color: var(--dark-blue);
+  }
+  .content-section{
+      background-color: var(--primary-blue);
+  }
+  .box-of-heading-content{
+      background-color: var(--light-blue);
+  }
+  .primary-content p{
+      text-decoration: underline var(--light-blue);
+  }
+  .primary-content p:hover{
+      text-decoration: underline 2px var(--primary-blue);
+  }
+  .secondary-content{
+      background-color: var(--primary-blue);
+      color:var(--white);
+  }
+  .txt-heading{
+      background-color: var(--light-gray);
+  }
+  .tertiary-content{
+      border: 10px solid var(--tertiary-blue);
+  }
+  .btn-div button{
+      background-color: var(--tertiary-blue);
+      color:var(--white);
+  }
+  .last-content-section{
+      background-color: var(--green);
+  }
+  .last-content-child{
+      background-color: var(--dark-green);
+  }
+  .last-content-child .logo-heading-section span{
+      color:var(--white);
+  }
+  footer{
+      background-color: var(--light-blue);
+  }
+  .contact-box-footer{
+      border : 1px solid var(--dark-blue);
+  }
+  
+.primary-content:hover,
+.secondary-content:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+}
+
+/* Dropdown menu */
+.dropdown-btn{
+    display: none;
+}
+.dropdown-btn i{
+    transform: scale(1.5);
+}
+.dropdown-ops{
+    position:absolute;
+    top:70px;
+    right:10px;
+    display: none;
+    pointer-events: none;
+    transition: all .3s ease-in-out;
+    z-index: 10001;
+}
+.dropdown-ops ul {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease; /* Add transition here */
+  
+    transform: translateY(-20px); /* Slide up initially */
+    padding: 10px; /* Add some padding */
+    border-radius: 5px; /* Add some border-radius */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add some shadow */
+    transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1000;;
+}
+.dropdown-ops ul li{
+    list-style: none;
+}
+
+.visible-dropdown{
+    display: block;
+}
+
+.visible-dropdown ul {
+    /* display: block; Remove display:block */
+    opacity: 1; /* Make it visible */
+    transform: translateY(0); /* Slide down to normal position */
+    pointer-events: auto; /* Allow clicks on visible menu */
+}

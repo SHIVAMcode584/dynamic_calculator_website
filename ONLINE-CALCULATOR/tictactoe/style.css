@@ -1,0 +1,226 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+*{
+    padding:0;
+    margin:0;
+    color:#FFF
+}
+h1{
+    margin-top:5vmin
+}
+main{
+    position: relative;
+}
+body{
+    background-color: #090D0D;
+    text-align: center;
+    overflow: hidden;
+}
+.container{
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+align-items: center;
+}
+.game{
+    height:60vmin;
+    width:60vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+align-items: center;
+gap:1.5vmin    ;
+}
+
+.box{
+    height: 18vmin;
+    width:18vmin;
+    border-radius: 1rem;
+    border : none;
+    box-shadow: 0 0 5px rgba(27, 236, 242 , .2);
+    font-size: 12vmin;
+    cursor: pointer;
+    color:#ffffc7;
+    background-color: #1BECF2;
+
+}
+
+
+#reset-btn{
+    padding:1rem 2rem;
+    font-size: 1.5em;
+    border-radius: 1rem;
+    background-color: #191913;
+    color:#fff;
+    border: none;
+    cursor: pointer;
+
+}
+
+.result-banner{
+    /* height:28vmin; */
+    display:none;
+    z-index: 10000;
+
+    position: absolute;
+    width:100vw;
+    border-radius: 1rem;
+    top:40%;
+    margin: auto;
+    background-color: #fff;
+}
+.heading-banner{
+    font-size: 25px;
+    font-family: 'Arial';
+    color:#090D0D;
+    margin-top:.5rem;
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+    padding-bottom: 5px;
+    /* animation: animateUnderline 2s infinite; */
+}
+.heading-banner::after{
+ content : "";
+ position: absolute;
+ left : 0;
+ bottom:0;
+ width: 0;
+ height:3px;
+ border-radius: 3px;
+ box-shadow: 0 0 4px rgba(0,0,0,.3);
+ background-color: #1BECF2;
+ animation: animateUnderline 2s ease-out forwards;
+}
+@keyframes animateUnderline{
+    0%{
+        width:0%;
+    }
+    100%{
+        width:100%;
+    }
+} 
+    
+@keyframes fadeInText {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+#playerWin{
+    /* border :2px solid royalblue; */
+    width:50%;
+    margin:auto;
+    color:black;
+    padding:1.4rem;
+    margin-bottom:.4rem;
+    margin-top:1rem;
+    font-size: 23px;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'Ubuntu';
+    position: relative;
+    opacity: 0;
+    animation: fadeInText 2s ease-out forwards;
+    /* animation-delay: 2s; */
+}
+#playerWin::after{
+    content : '';
+    position : absolute;
+    bottom:0;
+    left : 0;
+    width:0;
+    height:3px;
+    background-color: #1BECF2;
+    border-radius: 3px;
+    animation: animateUnderline 2s ease-out forwards;
+}
+@keyframes animateUnderline{
+    0%{
+        width:0%;
+    }
+    100%{
+        width:100%;
+    }
+}
+
+
+.ops-cont button{
+    padding:1rem;
+    border-radius: 5px;
+    margin-right:4rem;
+    background-color: #1BECF2;
+    font-weight: 500;
+    font-size: 22px;
+    cursor: pointer;
+    border : none;
+    box-shadow: 0 0 15px #1BECF2;
+    margin-bottom:1rem
+
+}
+#exit-btn{
+    padding : 1rem 2rem;
+
+}
+
+.result-banner-act{
+    display:block;
+}
+
+/* Crackers  */
+.crackers{
+    position: relative;
+    bottom:0;
+    display: none;
+    z-index: 9999999;
+
+}
+.cracker {
+    position: absolute;
+    bottom: 0;
+    width: 5px;
+    height: 20px;
+    background: yellow;
+    animation: shoot-up 2s linear infinite;
+    border-radius: 10px;
+    box-shadow: 0 0 50px red;
+  }
+
+  @keyframes shoot-up {
+    0% {
+      bottom: 0;
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      bottom: 100vh;
+      opacity: 0;
+      transform: translateX(calc(-50px + 100px * random()));
+    }
+  }
+
+  /* Launch multiple crackers with delay */
+  .cracker:nth-child(1) { left: 20%; animation-delay: 0s; }
+  .cracker:nth-child(2) { left: 40%; animation-delay: 0.2s; }
+  .cracker:nth-child(3) { left: 60%; animation-delay: 0.1s; }
+  .cracker:nth-child(4) { left: 80%; animation-delay: 0.5s; }
+  .cracker:nth-child(5) { left: 100%; animation-delay: 0.4s; }
+  .cracker:nth-child(6) { left: 700%; animation-delay: 1s; }
+  
+
+
+
+.crackers-act{
+    display: block;
+}
+/* RESPNOSIVE */
+
+@media (max-width:800px){
+    .result-banner{
+        top:10%
+    }
+}
+
+

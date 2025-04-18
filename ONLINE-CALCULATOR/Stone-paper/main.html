@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: yellow;
+        }
+        main{
+            height:80vmin;
+            width:90vmin;
+            text-align: center;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            margin : auto;
+            grid-template-columns: 1fr;
+            grid-template-rows:  1fr 2fr 1fr;
+            background-color: palegoldenrod;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        main > div{
+            display: flex;
+            justify-content: space-evenly;
+            
+        }
+        main > div > div{
+            border-radius: .6rem;
+            padding:0  1.2rem;
+            background-color: #333C4D;
+        }
+        main > div > div > p{
+            color:white;
+            font-size: 1.3rem;
+            font-weight: bold;
+            transform: translateY(-10%);
+        }
+        .result-div{
+
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            grid-row-start: 2;
+            grid-row-end : 3;
+            height:70%;
+        }
+        .result-div >div{
+            height:40%;
+            border : none;
+             background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="user-div">
+            <div class="input">
+                <img width="50" height="50" src="https://img.icons8.com/color/50/hand-rock-skin-type-2.png" alt="hand-rock-skin-type-2"/>
+
+                <p>Stone</p>
+            </div>
+            <div class="input">
+                <img width="50" height="50" src="https://img.icons8.com/color/50/hand.png" alt="hand"/>
+                <p>Paper</p>
+            </div>
+            <div class="input">
+                <img width="50" height="50" style = 'transform : rotate(270deg);' src="https://img.icons8.com/color/50/hand-scissors.png" alt="Scissors"/>
+                <p>Scissors</p>
+            </div>
+        </div>
+
+        <div class="result-div">
+            <div id = 'user-input-logo'>
+
+            </div>
+            <p id = 'result-text'>
+                Result Shown here::
+            </p>
+            <div id = 'comp-input-logo'>
+
+            </div>
+        </div>
+
+        <div class="comp-div">
+            <div class="comp-input">
+                <img width="50" height="50" src="https://img.icons8.com/color/50/hand-rock-skin-type-2.png" alt="hand-rock-skin-type-2"/>
+
+                <p>Stone</p>
+            </div>
+            <div class="comp-input">
+                <img width="50" height="50" src="https://img.icons8.com/color/50/hand.png" alt="hand"/>
+                <p>Paper</p>
+            </div>
+            <div class="comp-input">
+                <img width="50" height="50" style = 'transform: rotate(270deg);' src="https://img.icons8.com/color/50/hand-scissors.png" alt="Scissors"/>
+
+                <p>Scissors</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const inputBoxes = document.querySelectorAll('.input');
+        const userInputdisplay = document.querySelector('#user-input-logo');
+        const compInput = document.querySelector('#comp-input-logo');
+        const result = document.querySelector('#result-text');
+
+        const ops = ['Stone' , 'Paper' , 'Scissors'];
+
+
+        function getComputerChoice(){
+            const index = Math.floor(Math.random() * 3);
+            return ops[index];
+        }
+        // 1 = user win
+        // -1 = comp win
+
+        function resultShow(win) {
+        if (win === 'draw') {
+            console.log('Draw');
+            result.innerText = "It's a tie!";
+        } else if (win === -1) {
+            console.log('Comp winn');
+            result.innerText = "Computer Win and user lose";
+        } else if (win === 1) {
+            console.log('User Win')
+            result.innerText = 'You Won!';
+        } else {
+            console.log('Error')
+        }
+    }
+
+        const choiceImages = {
+            Stone: '<img width="50" height="50" src="https://img.icons8.com/color/50/hand-rock-skin-type-2.png" alt="Stone"/>',
+            Paper: '<img width="50" height="50" src="https://img.icons8.com/color/50/hand.png" alt="Paper"/>',
+            Scissors: '<img width="50" height="50" style = "transform: rotate(270deg);" src="https://img.icons8.com/color/50/hand-scissors.png" alt="Scissors"/>' // Using distinct icon
+        };
+
+        function showingInputcomp(comp) {
+            // Get the HTML string for the computer's choice
+            const compImageHtml = choiceImages[comp];
+
+            // Update the computer's display area
+            if (compImageHtml) { // Check if the choice is valid
+                compInput.innerHTML = compImageHtml;
+            } else {
+                // Optional: Handle unexpected input, though getComputerChoice should prevent this
+                compInput.innerHTML = ''; // Clear the area or show an error message
+                console.error("Invalid computer choice received:", comp);
+            }
+        }
+        function calculateWinner(user, comp) {
+        if (user === comp) {
+            resultShow('draw');
+        } else if (
+            (user === 'Stone' && comp === 'Scissors') ||
+            (user === 'Paper' && comp === 'Stone') ||
+            (user === 'Scissors' && comp === 'Paper')
+        ) {
+            resultShow(1); // User wins
+        } else {
+            resultShow(-1); // Computer wins
+        }
+    }
+        function showingInputuser(box , user){
+            if (user == 'Scissors'){
+                let imgTag = box.querySelector('img');
+            
+                let imgHtml = imgTag.outerHTML;
+                userInputdisplay.innerHTML = imgHtml;
+                userInputdisplay.firstChild.style.transform = 'rotate(90deg)';
+            }else{
+            let imgTag = box.querySelector('img');
+            
+            let imgHtml = imgTag.outerHTML;
+            userInputdisplay.innerHTML = imgHtml;
+            userInputdisplay.firstChild.style.transform = 'rotate(180deg)';
+            }
+        }
+      
+        inputBoxes.forEach((box) =>{
+            box.addEventListener('click' , ()=>{
+                let user = box.querySelector('p').textContent;
+                let comp = getComputerChoice();
+                showingInputcomp(comp);
+                showingInputuser(box , user);
+
+                
+                calculateWinner(user , comp);           
+        })
+    });
+
+
+    </script>
+</body>
+</html>
